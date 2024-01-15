@@ -3,7 +3,14 @@ package server
 import (
 	"math/rand"
 	"time"
+
+	jwt "github.com/golang-jwt/jwt/v5"
 )
+
+type MyCustomClaims struct {
+	Foo string `json:"foo"`
+	jwt.RegisteredClaims
+}
 
 type TransferRequest struct {
 	ToAccount int `json:"toAccount"`
